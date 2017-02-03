@@ -1,0 +1,21 @@
+.bar {
+	height: 60px;
+	background: #eee;
+	border-bottom: 1px solid #ccc;
+	overflow-x: auto;
+	overflow-y: hidden;
+
+	.overflow {
+		min-width: 600px;
+
+		&:after {
+			clear: both;
+			display: table;
+			content: '';
+		}
+	}
+
+	&.type-brick {
+		justify-content: space-between;
+	}
+}

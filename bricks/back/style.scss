@@ -1,0 +1,26 @@
+.back {
+	float: left;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+
+	a {
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding-right: 20px;
+
+		&:hover {
+			background: #ddd;
+		}
+		img {
+			height: 24px;
+			width: 24px;
+			transform: scale(-1, 1);
+			margin-left: 10px;
+			margin-right: 5px;
+		}
+	}
+}

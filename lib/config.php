@@ -1,11 +1,12 @@
 <?php
-namespace JensTornell\Bricks;
+namespace JensTornell\Bricks\UI;
 use c;
+use brui;
 
 class Config {
-	function set($folderuri) {
+	function set($brick = null) {
 		$this->prefix = 'plugin.bricks.ui.';
-		$this->config_path = root() . DS . $folderuri . DS . 'ui-config.php';
+		$this->config_path = brui::rootBricks() . DS . $brick . DS . 'ui.config.php';
 		$this->loadConfig();
 		$this->setValues();
 	}
@@ -23,15 +24,9 @@ class Config {
 	function setValues() {
 		$defaults = array(
 			'background' => 'transparent',
-			'css' => 'assets/css/style.css',
-			'hide' => false,
-			'js' => 'assets/css/script.js',
-			'lock' => true,
 			'margin' => false,
 			'outline' => false,
-			'page' => page(c::get('home','home')),
-			'path' => 'bricks-ui',
-			'presentation' => 'ui-presentation',
+			'pages' => page(c::get('home','home')),
 		);
 		foreach( $defaults as $key => $value ) {
 			$this->setValue($this->prefix . $key, $value);

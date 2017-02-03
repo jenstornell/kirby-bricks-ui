@@ -1,5 +1,5 @@
 <?php
-namespace JensTornell\Bricks;
+namespace JensTornell\Bricks\UI;
 use tpl;
 
 class Render extends \Kirby\Component\Template {

@@ -1,0 +1,33 @@
+ .tabs {
+	display: flex;
+	align-items: right;
+	justify-content: flex-end;
+	float: right;
+
+	.tab {
+		a {
+			padding: 0 10px;
+			height: calc(100% - 5px);
+			line-height: 45px;
+			font-size: 14px;
+			display: block;
+			margin-top: 5px;
+
+			border: 1px solid transparent;
+			border-bottom: none;
+
+			display: flex;
+			align-items: center;
+		}
+
+		&.active {
+			a {
+				background: #fff;
+				color: #000;
+				border: 1px solid #ccc;
+				border-bottom: none;
+				position: relative;
+			}
+		}
+	}
+}
