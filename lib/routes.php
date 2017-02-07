@@ -10,10 +10,11 @@ if(!class_exists('panel')) {
 		array(
 			'pattern' => c::get('plugin.bricks.ui.path', 'bricks-ui'),
 			'action'  => function() {
+
 				if(brui::isLocked()) {
 					return new Response(snippet('bricks-ui-locked', [], true), 'html', 404);
 				} else {
-					snippet('bricks-ui-wrap');
+					return new Response(snippet('bricks-ui-wrap', [], true), 'html', 200);
 				}
 			}
 		),
@@ -21,8 +22,7 @@ if(!class_exists('panel')) {
 			'pattern' => c::get('plugin.bricks.ui.path', 'bricks-ui') . '/(:all)',
 			'action'  => function($brick) {
 				if(brui::isLocked()) {
-					header::status('404');
-					snippet('bricks-ui-locked');
+					return new Response(snippet('bricks-ui-locked', [], true), 'html', 404);
 				} else {
 					$Config = new Config();
 					$Config->set($brick);
@@ -40,7 +40,7 @@ if(!class_exists('panel')) {
 					}
 
 					kirby()->set('option', 'data', $array);
-					snippet('bricks-ui-wrap');
+					return new Response(snippet('bricks-ui-wrap', [], true), 'html', 200);
 				}
 			}
 		),
@@ -48,13 +48,12 @@ if(!class_exists('panel')) {
 			'pattern' => c::get('plugin.bricks.ui.iframe.path', 'bricks-ui-iframe') . '/(:any)',
 			'action' => function($brick) {
 				if(brui::isLocked()) {
-					header::status('404');
-					snippet('bricks-ui-locked');
+					return new Response(snippet('bricks-ui-locked', [], true), 'html', 404);
 				} else {
 					$Config = new Config();
 					$Config->set($brick);
 					$Template = new Template();
-					echo $Template->set($brick);
+					return new Response($Template->set($brick), 'html', 200);
 				}
 			}
 		),

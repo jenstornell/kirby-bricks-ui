@@ -1,4 +1,4 @@
-<div class="sidebar active">
+<div class="sidebar<?php e(brui::isHome(), ' active'); ?>">
 	<div class="bricks overflow">
 		<?php if(!empty(brui::bricks())) : ?>
 		<h2>Bricks <span>(<?php echo count((array)brui::bricks()); ?>)</span></h2>

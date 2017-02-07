@@ -1,4 +1,4 @@
-<div class="main type-<?php echo brui::getView(); ?>">
+<div class="main type-<?php echo brui::getView(); ?> active">
 	<?php
 	snippet('bricks-ui-bar');
 	snippet('bricks-ui-view');
